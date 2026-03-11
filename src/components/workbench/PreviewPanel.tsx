@@ -64,7 +64,7 @@ export function PreviewPanel({
             )}
             initial={false}
         >
-            {/* Action Bar */}
+            {}
             <div className="absolute top-6 right-6 z-40 flex items-center gap-2 rounded-full border border-border/40 bg-background/80 p-1.5 backdrop-blur-md shadow-sm transition-all hover:bg-background">
                 <button
                     onClick={handleRefresh}
@@ -108,7 +108,7 @@ export function PreviewPanel({
                             transition={{ duration: 0.3, ease: "easeInOut" }}
                             className="w-full max-w-3xl space-y-12 py-20"
                         >
-                            {/* Install Section */}
+                            {}
                             <div className="space-y-4">
                                 <div className="flex items-center gap-2 mb-2">
                                     <div className="p-1.5 rounded-md bg-muted text-muted-foreground">
@@ -145,7 +145,7 @@ export function PreviewPanel({
                                 </div>
                             </div>
 
-                            {/* Usage Section */}
+                            {}
                             {usageCode && (
                                 <div className="space-y-4">
                                     <div className="flex items-center gap-2 mb-2">
@@ -168,7 +168,7 @@ export function PreviewPanel({
                                 </div>
                             )}
 
-                            {/* Code Section */}
+                            {}
                             {fullCode && (
                                 <div className="space-y-4">
                                     <div className="flex items-center gap-2 mb-2">

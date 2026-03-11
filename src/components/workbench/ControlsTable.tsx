@@ -17,7 +17,7 @@ interface ControlsTableProps {
 export function ControlsTable({ config, values, onChange, className }: ControlsTableProps) {
     const props = config.props;
 
-    // Globally separate props by type to ensure grids form properly
+    
     const switches = props.filter((p) => p.type === "switch");
     const sliders = props.filter((p) => p.type === "slider");
     const others = props.filter((p) => p.type !== "switch" && p.type !== "slider" && p.type !== "links");
@@ -32,7 +32,7 @@ export function ControlsTable({ config, values, onChange, className }: ControlsT
             </div>
 
             <div className="space-y-12 pb-20">
-                {/* Links Editor */}
+                {}
                 {linksProp && (
                     <div className="space-y-6">
                         <h4 className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground/50">
@@ -45,7 +45,7 @@ export function ControlsTable({ config, values, onChange, className }: ControlsT
                     </div>
                 )}
 
-                {/* Toggles - 3 Columns */}
+                {}
                 {switches.length > 0 && (
                     <div className="space-y-6">
                         <h4 className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground/50">
@@ -65,7 +65,7 @@ export function ControlsTable({ config, values, onChange, className }: ControlsT
                     </div>
                 )}
 
-                {/* Adjustments - 2 Columns */}
+                {}
                 {sliders.length > 0 && (
                     <div className="space-y-6">
                         <h4 className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground/50">
@@ -84,7 +84,7 @@ export function ControlsTable({ config, values, onChange, className }: ControlsT
                     </div>
                 )}
 
-                {/* Configuration - 2 Columns */}
+                {}
                 {others.length > 0 && (
                     <div className="space-y-6">
                         <h4 className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground/50">
@@ -113,7 +113,7 @@ function LinkEditor({ value, onChange }: { value: any[]; onChange: (val: any[]) 
 
     const addLink = () => {
         if (!newLabel) return;
-        // Only one link per angle
+        
         if (value.some(l => l.angle === newAngle)) return;
 
         onChange([...value, { label: newLabel, angle: newAngle, href: "#" }]);

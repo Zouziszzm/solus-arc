@@ -18,13 +18,11 @@ export default function HomePage() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2, duration: 0.8 }}
-                    className="mt-12 space-y-6 text-lg text-muted-foreground leading-relaxed max-w-xl"
+                    className="mt-12 space-y-6 text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl"
                 >
                     <p>
                         Solus-Arc is a personal collection of components I&apos;ve gathered from various corners of the web. 
-                        Each piece has been ethically sourced, updated, and refined for better usability and performance.
-                    </p>
-                    <p>
+                        Each piece has been ethically sourced, updated, and refined for better usability and performance. 
                         Everything here is for you to take and use in your own projects. 
                         Think of it as a curated treasury of high-end React patterns—ethically taken, 
                         deeply modified, and ready for your next big idea.

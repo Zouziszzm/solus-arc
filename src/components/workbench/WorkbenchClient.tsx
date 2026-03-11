@@ -76,7 +76,7 @@ export default function MyComponent() {
 
     return (
         <div className="relative flex flex-col lg:flex-row h-screen lg:h-[calc(100vh-80px)] w-full overflow-hidden lg:overflow-hidden bg-background">
-            {/* Left/Top Side: Preview */}
+            {}
             <motion.div
                 initial={{ opacity: 0, x: -20, filter: "blur(10px)" }}
                 animate={{
@@ -95,7 +95,7 @@ export default function MyComponent() {
                 </PreviewPanel>
             </motion.div>
 
-            {/* Right/Bottom Side: Info & Controls */}
+            {}
             <motion.div
                 initial={{ opacity: 0, x: 20, filter: "blur(10px)" }}
                 animate={{
@@ -110,7 +110,7 @@ export default function MyComponent() {
             >
                 <InfoPanel>
                     <div className="space-y-12 lg:space-y-20 pb-20 lg:pb-40 px-0 lg:px-12">
-                        {/* Header */}
+                        {}
                         <header className="space-y-6 pt-4 lg:pt-8">
                             <div className="flex items-center gap-2 text-[10px] font-black text-muted-foreground/30 uppercase tracking-[0.3em]">
                                 <span>made</span>
@@ -141,7 +141,7 @@ export default function MyComponent() {
                             </p>
                         </header>
 
-                        {/* Mobile Warning - Hidden on Large Screens */}
+                        {}
                         {isMobile && (
                             <div className="p-8 rounded-3xl border border-dashed border-orange-500/30 bg-orange-500/5 text-center space-y-4 animate-in slide-in-from-bottom duration-700">
                                 <p className="text-sm text-orange-600/80 font-medium italic leading-relaxed">
@@ -151,13 +151,13 @@ export default function MyComponent() {
                             </div>
                         )}
 
-                        {/* Props & Controls - Hidden on Mobile */}
+                        {}
                         {!isMobile && (
                             <>
-                                {/* Props Table */}
+                                {}
                                 <PropsTable props={config.props} />
 
-                                {/* Controls */}
+                                {}
                                 <ControlsTable config={config} values={props} onChange={handlePropChange} />
                             </>
                         )}

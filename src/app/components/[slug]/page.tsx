@@ -34,7 +34,7 @@ export default async function ComponentWorkbench({ params }: PageProps) {
         fullCode = await fs.readFile(filePath, "utf-8");
     } catch (error) {
         console.error("Failed to read component source:", error);
-        fullCode = "// Source code unavailable";
+        fullCode = "Error loading component source.";
     }
 
     return (
