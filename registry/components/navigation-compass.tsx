@@ -91,7 +91,10 @@ interface Point {
 
 function polarToCartesian(center: number, radius: number, angleDeg: number): Point {
   const rad = toAngleRad(angleDeg);
-  return { x: center + Math.cos(rad) * radius, y: center + Math.sin(rad) * radius };
+  return {
+    x: Number((center + Math.cos(rad) * radius).toFixed(4)),
+    y: Number((center + Math.sin(rad) * radius).toFixed(4)),
+  };
 }
 
 /** Returns the shortest arc distance between two angles on a 360° circle. */
@@ -623,7 +626,11 @@ function CompassHUD({
   useMotionValueEvent(roseRotation, "change", (v) => setRose(Math.round(v % 360)));
 
   return (
-    <div className="absolute top-4 left-4 z-50 p-4 rounded-2xl bg-background/80 backdrop-blur-md border border-border/40 font-mono text-[10px] space-y-2 min-w-[140px] pointer-events-none shadow-xl">
+    <motion.div
+      drag
+      dragMomentum={false}
+      className="absolute top-4 left-4 z-50 p-4 rounded-2xl bg-background/80 backdrop-blur-md border border-border/40 font-mono text-[10px] space-y-2 min-w-[140px] pointer-events-auto shadow-xl cursor-move active:cursor-grabbing"
+    >
       <div className="flex justify-between items-center text-muted-foreground/40 font-bold uppercase tracking-widest border-b border-border/20 pb-1 mb-2">
         <span>System HUD</span>
         <div className="h-1.5 w-1.5 rounded-full bg-orange-500 animate-pulse" />
@@ -640,7 +647,7 @@ function CompassHUD({
         <span className="text-muted-foreground">Active:</span>
         <span className="text-orange-500 font-bold">{activeAngle}°</span>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

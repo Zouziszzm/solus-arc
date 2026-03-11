@@ -17,5 +17,6 @@ export interface ComponentConfig {
     slug: string;
     category: string;
     description: string;
+    sourceFile: string;
     props: ComponentProp[];
 }
