@@ -59,24 +59,10 @@ export function PreviewPanel({
         <motion.section
             data-maximized={isMaximized}
             className={cn(
-                "relative z-10 flex h-[calc(100vh-80px)] items-center justify-center p-3 overflow-hidden bg-muted/5 animate-in fade-in duration-1000",
+                "relative z-10 flex items-center justify-center p-3 overflow-hidden bg-muted/5",
                 className
             )}
             initial={false}
-            animate={{
-                flexBasis: isMaximized ? "100%" : "50%",
-            }}
-            transition={{
-                type: "spring",
-                stiffness: 260,
-                damping: 30,
-                mass: 1
-            }}
-            style={{
-                minWidth: 0,
-                flexShrink: 0,
-                flexGrow: 0
-            }}
         >
             {/* Action Bar */}
             <div className="absolute top-6 right-6 z-40 flex items-center gap-2 rounded-full border border-border/40 bg-background/80 p-1.5 backdrop-blur-md shadow-sm transition-all hover:bg-background">
@@ -111,7 +97,7 @@ export function PreviewPanel({
                 </button>
             </div>
 
-            <div className="relative w-full h-full flex items-center justify-center p-8 overflow-auto no-scrollbar">
+            <div className="relative w-full h-full flex items-center justify-center p-4 overflow-auto no-scrollbar">
                 <AnimatePresence mode="wait" initial={false}>
                     {showCode ? (
                         <motion.div

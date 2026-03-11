@@ -426,8 +426,8 @@ function CompassTick({
     return isMajor ? "rgba(100,100,100,0.4)" : "rgba(100,100,100,0.2)";
   });
 
-  const x1 = useTransform(innerRadius, (r) => center + Math.cos(angleRad) * r);
-  const y1 = useTransform(innerRadius, (r) => center + Math.sin(angleRad) * r);
+  const x1 = useTransform(innerRadius, (r) => Number((center + Math.cos(angleRad) * r).toFixed(4)));
+  const y1 = useTransform(innerRadius, (r) => Number((center + Math.sin(angleRad) * r).toFixed(4)));
   const { x: x2, y: y2 } = polarToCartesian(center, outerRadius, angleDeg);
 
   return (

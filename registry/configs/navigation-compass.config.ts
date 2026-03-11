@@ -4,7 +4,9 @@ export const navigationCompassConfig: ComponentConfig = {
     name: "Navigation Compass",
     slug: "navigation-compass",
     category: "Navigation",
-    description: "A premium, interactive navigation compass with magnetic effects, panning, and active zone tracking.",
+    description: "Navigate through your wildest designs with precision.",
+    authorName: "Rohit Singh Rawat",
+    authorLink: "https://rohitsinghrawat.com/",
     sourceFile: "navigation-compass.tsx",
     props: [
         // Core Configuration

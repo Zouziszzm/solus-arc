@@ -3,3 +3,4 @@
 // and we want types to work properly in the workbench.
 
 export { NavigationCompass } from "./navigation-compass";
+export { ProgressiveBlur } from "./progressive-blur";

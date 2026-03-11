@@ -10,7 +10,7 @@ export default function ComponentsLayout({
         <PanelProvider>
             <div className="flex w-full">
                 <SidebarNav />
-                <main className="flex-1 md:pl-64 lg:pl-72">
+                <main className="flex-1 lg:pl-72 pt-32 lg:pt-0">
                     {children}
                 </main>
             </div>

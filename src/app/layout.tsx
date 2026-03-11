@@ -26,15 +26,15 @@ export default function RootLayout({
         <html lang="en" suppressHydrationWarning>
             <body className={`${inter.variable} ${instrumentSerif.variable} font-sans antialiased`}>
                 <Providers>
-                    <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-6 bg-background/80 backdrop-blur-sm border-b border-border/40">
-                        <Link href="/" className="flex items-center gap-2 text-sm font-medium">
-                            <span className="text-lg">✶</span>
-                            <span className="font-serif text-lg tracking-tight">Solus-arc</span>
+                    <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 lg:px-8 py-4 lg:py-6 bg-background/80 backdrop-blur-md border-b border-border/40">
+                        <Link href="/" className="flex items-center gap-2 text-sm font-bold shrink-0">
+                            <span className="text-xl text-orange-500">✶</span>
+                            <span className="font-serif text-xl tracking-tight">Solus-arc</span>
                         </Link>
-                        <nav className="flex items-center gap-8 text-sm text-muted-foreground">
-                            <Link href="/docs" className="hover:text-foreground transition-colors font-medium">Docs</Link>
-                            <Link href="/components" className="hover:text-foreground transition-colors font-medium">Components</Link>
-                            <Link href="https://github.com" target="_blank" className="flex items-center gap-1 hover:text-foreground transition-colors font-medium">
+                        <nav className="flex items-center gap-4 lg:gap-8 text-[12px] lg:text-sm text-muted-foreground overflow-x-auto no-scrollbar scroll-smooth whitespace-nowrap px-2">
+                            <Link href="/docs" className="hover:text-foreground transition-colors font-semibold py-1">Docs</Link>
+                            <Link href="/components" className="hover:text-foreground transition-colors font-semibold py-1">Components</Link>
+                            <Link href="https://github.com" target="_blank" className="hidden sm:flex items-center gap-1 hover:text-foreground transition-colors font-semibold py-1">
                                 Github
                             </Link>
                             <ThemeToggle />

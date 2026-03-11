@@ -18,5 +18,7 @@ export interface ComponentConfig {
     category: string;
     description: string;
     sourceFile: string;
+    authorName?: string;
+    authorLink?: string;
     props: ComponentProp[];
 }
