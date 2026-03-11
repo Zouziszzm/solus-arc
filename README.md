@@ -1,5 +1,4 @@
 <div align="center">
-  <img src="public/logo.png" alt="Solus-Arc Logo" width="120" />
   <h1>Solus-Arc</h1>
   <p><strong>Build faster with elegant, high-performance React components.</strong></p>
   <p>
