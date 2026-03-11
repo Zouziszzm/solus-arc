@@ -5,11 +5,11 @@ import { usePanel } from "./panel-context";
 import { cn } from "@/lib/utils";
 
 export function PanelToggle() {
-    const { isMaximized, togglePanel } = usePanel();
+    const { isMaximized, toggleMaximize } = usePanel();
 
     return (
         <button
-            onClick={togglePanel}
+            onClick={toggleMaximize}
             className={cn(
                 "absolute bottom-6 right-6 z-50 flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background shadow-sm transition-all hover:bg-accent",
                 isMaximized && "right-6"

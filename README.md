@@ -15,14 +15,14 @@ Solus-Arc is a curated treasury of high-end React patterns—ethically sourced, 
 
 ---
 
-## ✨ Features
+## Features
 
 - **Elegant Design**: Crafted with a focus on minimalism and premium aesthetics.
 - **Copy & Paste Philosophy**: No hidden npm packages. Pure, editable code that belongs in your project.
 - **Sharp Geometry**: Replaces the standard "rounded everywhere" look with sharp, modern lines.
 - **Accessible & Customizable**: Built on top of robust foundations like `lucide-react` and `framer-motion` (soon `motion/react`).
 
-## 🚀 Quick Start
+## Quick Start
 
 Solus-Arc isn't an npm package you install. It's a library of hand-crafted components you add directly to your project.
 
@@ -30,7 +30,7 @@ Solus-Arc isn't an npm package you install. It's a library of hand-crafted compo
 2. **Copy the Code**: View the source code for the component you want.
 3. **Paste & Enjoy**: Add it to your project, install any missing dependencies like `motion` or `lucide-react`, and customize away!
 
-## 🤝 Collaborative & Open Source
+## Collaborative & Open Source
 
 Solus-Arc was built by **Zouziszzm** and is fully open to collaboration. 
 
@@ -44,7 +44,7 @@ Whether you want to add a new component, fix a bug, or refine an existing design
 4. Push to the branch (`git push origin feature/amazing-component`)
 5. Open a Pull Request
 
-## 💻 Tech Stack
+## Tech Stack
 
 - [Next.js](https://nextjs.org)
 - [React](https://react.dev)
