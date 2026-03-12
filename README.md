@@ -18,7 +18,6 @@ Solus-Arc is a curated treasury of high-end React patterns—ethically sourced, 
 
 - **Elegant Design**: Crafted with a focus on minimalism and premium aesthetics.
 - **Copy & Paste Philosophy**: No hidden npm packages. Pure, editable code that belongs in your project.
-- **Sharp Geometry**: Replaces the standard "rounded everywhere" look with sharp, modern lines.
 - **Accessible & Customizable**: Built on top of robust foundations like `lucide-react` and `framer-motion` (soon `motion/react`).
 
 ## Quick Start
