@@ -10,7 +10,10 @@
 
 <br />
 
-Solus-Arc is a curated treasury of high-end React patterns—ethically sourced, deeply modified, and ready for your next big idea. It focuses on premium aesthetics, minimalism, and sharp geometry, providing you with beautiful code that you can copy, paste, and customize.
+Solus-Arc is built to be a collaborative collection of elegant React components.  
+We welcome developers, designers, and open-source contributors who want to help expand the library.
+
+It focuses on premium aesthetics, minimalism, and sharp geometry, providing you with beautiful code that you can copy, paste, and customize.
 
 ---
 
