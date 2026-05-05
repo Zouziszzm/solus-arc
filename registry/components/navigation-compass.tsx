@@ -77,6 +77,8 @@ export interface NavigationCompassProps {
   linksRadiusMultiplier?: number;
   /** Font size for degree labels (default 12) */
   degreeFontSize?: number;
+  /** Show 16-point cardinal direction labels (N, NNE, NE… NNW) on the outer ring */
+  showCardinalLabels?: boolean;
 }
 
 /** Converts compass angle (0=top, CW) to SVG radians. */
@@ -528,6 +530,7 @@ function CompassDegreeLabels({
   activeZoneAngle,
   activeZoneThreshold,
   linksVisibility,
+  showCardinalLabels,
 }: {
   center: number;
   numberRadius: number;
@@ -537,6 +540,7 @@ function CompassDegreeLabels({
   activeZoneAngle: number;
   activeZoneThreshold: number;
   linksVisibility?: "always" | "on-demand";
+  showCardinalLabels?: boolean;
 }) {
   return (
     <>
@@ -556,6 +560,7 @@ function CompassDegreeLabels({
             activeZoneAngle={activeZoneAngle}
             activeZoneThreshold={activeZoneThreshold}
             linksVisibility={linksVisibility}
+            showCardinalLabels={showCardinalLabels}
           />
         );
       })}
@@ -573,6 +578,7 @@ function DegreeLabel({
   activeZoneAngle,
   activeZoneThreshold,
   linksVisibility,
+  showCardinalLabels,
 }: {
   angle: number;
   center: number;
@@ -583,10 +589,12 @@ function DegreeLabel({
   activeZoneAngle: number;
   activeZoneThreshold: number;
   linksVisibility?: "always" | "on-demand";
+  showCardinalLabels?: boolean;
 }) {
   const { x, y } = polarToCartesian(center, numberRadius, angle);
 
   const opacity = useTransform(totalRotation, (latest) => {
+    if (showCardinalLabels && angle % 45 === 0) return 0;
     if (!hasLink || linksVisibility !== "on-demand") {
       return hasLink ? 0 : 1;
     }
@@ -607,6 +615,50 @@ function DegreeLabel({
         </text>
       </motion.g>
     </g>
+  );
+}
+
+function CardinalDirectionLabels({
+  center,
+  numberRadius,
+  fontSize = 12,
+}: {
+  center: number;
+  numberRadius: number;
+  fontSize?: number;
+}) {
+  return (
+    <>
+      {Object.entries(CARDINAL_LABELS).map(([angleStr, { label, weight }]) => {
+        const angle = Number(angleStr);
+        const { x, y } = polarToCartesian(center, numberRadius, angle);
+        const isPrimary = weight === "primary";
+        const isSecondary = weight === "secondary";
+        const size = isPrimary ? fontSize + 2 : isSecondary ? fontSize : fontSize - 1;
+        const opacity = isPrimary ? 0.9 : isSecondary ? 0.6 : 0.4;
+        const fontWeight = isPrimary ? "bold" : isSecondary ? "600" : "normal";
+
+        return (
+          <g key={`cardinal-${angle}`} transform={`translate(${x}, ${y})`}>
+            <g style={{ transform: `rotate(${angle}deg)` }}>
+              <text
+                textAnchor="middle"
+                dominantBaseline="middle"
+                className="fill-foreground"
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontSize: `${size}px`,
+                  fontWeight,
+                  opacity,
+                }}
+              >
+                {label}
+              </text>
+            </g>
+          </g>
+        );
+      })}
+    </>
   );
 }
 
@@ -651,6 +703,25 @@ function CompassHUD({
   );
 }
 
+const CARDINAL_LABELS: Record<number, { label: string; weight: "primary" | "secondary" | "tertiary" }> = {
+  0:     { label: "N",   weight: "primary" },
+  22.5:  { label: "NNE", weight: "tertiary" },
+  45:    { label: "NE",  weight: "secondary" },
+  67.5:  { label: "ENE", weight: "tertiary" },
+  90:    { label: "E",   weight: "primary" },
+  112.5: { label: "ESE", weight: "tertiary" },
+  135:   { label: "SE",  weight: "secondary" },
+  157.5: { label: "SSE", weight: "tertiary" },
+  180:   { label: "S",   weight: "primary" },
+  202.5: { label: "SSW", weight: "tertiary" },
+  225:   { label: "SW",  weight: "secondary" },
+  247.5: { label: "WSW", weight: "tertiary" },
+  270:   { label: "W",   weight: "primary" },
+  292.5: { label: "WNW", weight: "tertiary" },
+  315:   { label: "NW",  weight: "secondary" },
+  337.5: { label: "NNW", weight: "tertiary" },
+};
+
 const DEFAULT_COLORS: CompassColors = {
   active: "fill-orange-300 dark:fill-orange-300",
   idle: "fill-foreground/50 font-medium",
@@ -682,6 +753,7 @@ export function NavigationCompass({
   labelFontSize = 16,
   linksRadiusMultiplier = 0.4762,
   degreeFontSize = 12,
+  showCardinalLabels = false,
   className,
 }: Partial<NavigationCompassProps> & { className?: string }) {
   const center = size / 2;
@@ -815,7 +887,16 @@ export function NavigationCompass({
             activeZoneAngle={activeZoneAngle}
             activeZoneThreshold={activeZoneThreshold}
             linksVisibility={linksVisibility}
+            showCardinalLabels={showCardinalLabels}
           />
+
+          {showCardinalLabels && (
+            <CardinalDirectionLabels
+              center={center}
+              numberRadius={numberRadius}
+              fontSize={degreeFontSize}
+            />
+          )}
         </motion.g>
       </motion.svg>
 
