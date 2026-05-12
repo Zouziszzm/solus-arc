@@ -205,6 +205,13 @@ export const navigationCompassConfig: ComponentConfig = {
             default: "outer",
             options: ["outer", "numbers"],
             description: "Radius mode where links are placed."
+        },
+        {
+            name: "showCardinalLabels",
+            label: "Cardinal Labels",
+            type: "switch",
+            default: false,
+            description: "Show 16-point cardinal direction labels (N, NNE, NE… NNW) on the outer ring."
         }
     ]
 };
